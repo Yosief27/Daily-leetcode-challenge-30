@@ -1,3 +1,4 @@
+//given two strings s and t return true if t is a subsequence of t otherwise false.
 function isSubsequence(s:string,t:string):boolean{
     const sourceArr=s.split("");
     const tripArr=t.split("")
