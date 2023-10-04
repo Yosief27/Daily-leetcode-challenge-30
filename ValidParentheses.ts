@@ -1,5 +1,5 @@
 //Given a string s containing characters "[","{" or "(" determine if the input string have valued combination of characters
-const validParentheses=(s:string)=>{
+function validParentheses(s:string):boolean{
     const arrString=s.split("")
     const validPar:{[key:string]:string}={
         "{":"}",
@@ -8,18 +8,20 @@ const validParentheses=(s:string)=>{
     }
     let isValid:boolean=true;
     const arrClosed:string[]=[];
-    for(let i=0;i<s.length;i++){
-        let currPar=s[i];
-        if(validPar[currPar]) {
-            arrClosed.push(validPar[currPar])
-        }else{
-            if(currPar!==arrClosed.pop()){
+    arrString.every((val:string,i:number,arr:string[]) => {
+        if(validPar[val])
+        {arrClosed.push(validPar[val])}
+        else{
+            if(val!=arrClosed.pop()){
                 isValid=false;
-                break;
+                //as a break
+                return isValid;
             }
-        } 
-
-    }
+            //as continue
+    }return isValid
+    });
     return isValid && arrClosed.length===0;
 }
+
+
 console.log(validParentheses("{(()}[]"))
