@@ -1,30 +1,19 @@
-//Given a string s containing characters "[","{" or "(" determine if the input string have valued combination of characters
-function validParentheses(s) {
-    var arrString = s.split("");
-    var validPar = {
-        "{": "}",
-        "[": "]",
-        "(": ")",
-    };
-    var isValid = true;
-    var arrClosed = [];
-    arrString.every(function (val, i, arr) {
-        if (validPar[val]) {
-            arrClosed.push(validPar[val]);
-        }
-        else {
-            if (val != arrClosed.pop()) {
-                isValid = false;
-                return isValid;
-            }
-        }
-        return isValid;
-    });
-    return isValid && arrClosed.length === 0;
-}
-console.log(validParentheses("{(()}[]"));
-//more to test
-//function test():void{
-//const arr:number[]=[1,2,3]
-//arr.forEach(())
-//}
+const s1="josi";
+const s2="kisu";
+const s3=s1.concat(" ",s2,);
+console.log(s3);
+// or 
+const arr=[];
+const name1= arr.push(s1,s2);
+console.log(arr.join(" "));
+//push
+//append to last position in a given arr return a number
+let countries=["josi","kisu"]
+countries.push("meary","natey"
+)
+//pop remove that last element in a given arr return the last elemen
+//return meary
+//splice vs slice
+//splice change the orginal arr and insert if given ,it have 4 arrguments (starting ,till ,tobe add)
+console.log(countries.splice(1,6,"weye"));
+console.log(countries);

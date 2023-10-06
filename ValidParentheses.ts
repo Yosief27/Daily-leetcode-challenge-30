@@ -22,6 +22,3 @@ function validParentheses(s:string):boolean{
     });
     return isValid && arrClosed.length===0;
 }
-
-
-console.log(validParentheses("{(()}[]"))
