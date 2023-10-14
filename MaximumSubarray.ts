@@ -1,7 +1,9 @@
 const maxSubArray=(arr:Array<number>):number=>{
    let sol:number=arr[0];
-    for(let i in arr){
-        sol+arr[i]<arr[i]?sol=sol+arr[i]:sol=arr[i]
+    
+    for(let i=1;i<arr.length;i++ ){
+        arr[i]=Math.max(arr[i],arr[i]+arr[i-1])
+        sol=Math.max(sol,arr[i])
     }
     return sol
 }
