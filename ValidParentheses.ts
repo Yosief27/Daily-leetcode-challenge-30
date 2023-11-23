@@ -11,12 +11,12 @@ function validParentheses(s:string):boolean{
     arrString.every((val:string,i:number,arr:string[]) => {
         if(validPar[val])
         {arrClosed.push(validPar[val])}
-        else{
+        else
             if(val!=arrClosed.pop()){
                 isValid=false;
                 //as a break
                 return isValid;
-            }
+            
             //as continue
     }return isValid
     });
