@@ -12,7 +12,26 @@ const subArraySum=(arrNum:Array<number>,k:number):number=>{
     }
     return count
 }
+const subArraySumOptimal=(arrNum:Array<number>,k:number):number=>{
+let count=0;
+let preSum=0;
+const hashTable:{[key:number]:number}={0:1}
+for(let i =0;i<arrNum.length;i++){
+    preSum+=arrNum[i];
+    let targetNum=preSum-k;
+    if(hashTable[targetNum]){
+        count+=hashTable[targetNum];
+    }
+    if(!hashTable[preSum]){
+        hashTable[preSum]=0;
+
+    }
+
+    hashTable[preSum]+=1;
+}
+    return count;
+}
 console.log(
-subArraySum([1,2,3,-3,1,1,1,4,2,-3],3)
+subArraySumOptimal([1,2,3,-3,1,1,1,4,2,-3],3)
 )
 
