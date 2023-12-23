@@ -29,4 +29,4 @@ var subArraySumOptimal = function (arrNum, k) {
     }
     return count;
 };
-console.log(subArraySumOptimal([1, 2, 3, -3, 1, 1, 1, 4, 2, -3], 3));
+console.log(subArraySumOptimal([1, 2, -3, 1, 3], 3));

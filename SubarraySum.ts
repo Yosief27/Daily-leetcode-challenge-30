@@ -32,6 +32,6 @@ for(let i =0;i<arrNum.length;i++){
     return count;
 }
 console.log(
-subArraySumOptimal([1,2,3,-3,1,1,1,4,2,-3],3)
+subArraySumOptimal([1,2,-3,1,3],3)
 )
 
