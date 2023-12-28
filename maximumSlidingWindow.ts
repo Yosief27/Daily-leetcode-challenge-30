@@ -1,32 +1,36 @@
 const maximumSlidingWindow=(arr:Array<number>,k:number):string=>{
-    let str="";
-    //quee data structure to stor max number on the siding window
-    const QArr:Array<number>=[]
-    let i:number;
-    //for the first window size 
-    for(i=0;i<k-1;i++){
-        while(QArr.length!==0 && arr[i]>=arr[QArr[QArr.length-1]]){
-            //if current element is large than the last element in the quee remove from the front 
-            QArr.shift();
-
-        }
-        // add the current to the end of quee
-        QArr.push(i);
+    let solution:string="";
+    const qArr:Array<number>=[]
+    let i=0;
+    for (i;i<k;i++){
+        //checking the quee if it has an index if so check if it is larger than the current if not remove from the quee
+        while(qArr.length!==0 && arr[i]>=arr[qArr[qArr.length-1]])
+            {
+                qArr.pop()
+            }
+            qArr.push(i)
     }
+    // add answer
+    solution+=arr[qArr[0]]+""
+    //moving to the next window
     for(i;i<arr.length;i++){
-        //output the maximum element in each shift of the window by one 
-        str+=arr[QArr[0]]+",";
-        // check if element in quee is inside the next window 
-        while(QArr.length!==0 && QArr[0]<=i-k){
-            QArr.shift()
+        console.log(qArr,i)
+        // check if the first index in the quee is inside the window currently searching for the max
+        while(qArr.length!==0 && qArr[0]<=i-k){
+            qArr.shift()
+            console.log(qArr)
         }
-
-         while(QArr.length!==0 && arr[i]>=arr[QArr[QArr.length-1]]){
-            QArr.shift();
-
+        
+        //checking the quee if it has an index if so check if it is larger than the current if not remove from the quee
+        while(qArr.length!==0 && arr[i]>=arr[qArr[qArr.length-1]]){
+            qArr.pop();
+            
         }
-        QArr.push(i);
+        qArr.push(i)
+
+        solution+=" ,"+arr[qArr[0]];
     }
-    return str
+    return solution
+
 }
-console.log(maximumSlidingWindow([12,78,42,90,87],3))
+console.log(maximumSlidingWindow([12,23,43,24,12,12,6],3))
