@@ -19,7 +19,15 @@ var cart=[
     }
     return value 
   }
+  function  nameToUpper(value){
+    const objColl =value.name.toUpperCase();
+    return objColl;
+   }
+   const updateName=(cart)=>{
+      cart.map(nameToUpper(item))
+   }
   function applyCoupon(items){
+
     const discountItems=items.map(mapfun)
     console.log(discountItems);
 
@@ -36,6 +44,8 @@ var cart=[
     },[])
     return discountReduce
   }
+
+  
  // primeItems(cart)
   //applyCoupon(cart)
  console.log(couponReduce(cart))
